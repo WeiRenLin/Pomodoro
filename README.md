@@ -1,4 +1,4 @@
-# pomodoro
+# pomodoro2
 
 ## Project setup
 ```
