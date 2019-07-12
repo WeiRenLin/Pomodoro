@@ -13,10 +13,22 @@
       </div>
       <div class="home__left__newMission__mix__title">
         <div class="home__left__newMission__mix__title__small__dot"></div>
-        <div class="home__left__newMission__mix__title__main__title">The First thing to do today</div>
+        <div class="home__left__newMission__mix__title__main__title">{{title}}</div>
       </div>
       <div class="home__left__newMission__countdown">{{minTime+":"+secTime}}</div>
-      <div class="home__left__newMission__task__list">test</div>
+      <div class="home__left__newMission__list">
+        <div  class="home__left__newMission__list__task">
+          <ul>
+            <li v-for="item in list" :key="item.id">
+               <div class="home__left__newMission__list__task__small__dot"></div> 
+               {{item.name}}
+               <div class="home__left__newMission__list__task__small__triangle" @click="changeTask(item)">
+              <i class="far fa-play-circle changeTask"></i>
+               </div>
+               </li>
+          </ul>
+         </div>
+      </div>
     </div>
     <div class="home__right">
       <div class="home__right__dot">
@@ -45,14 +57,25 @@ export default {
       isPlay: false,
       time: null,
       minTime: null,
-      secTime: null
-    };
+      secTime: null,
+      list:[
+        {id:1,name:"the second thing to do today"},{id:2,name:"the third thing to do today"},{id:3,name:"the forth thing to do today"}
+      ],
+      title:'the First thing to do today',
+    }
   },
   props: {},
   methods: {
     go: function() {
       var vm = this;
       vm.isPlay = !vm.isPlay;
+    },
+    changeTask:function(item){
+      var vm = this;
+      vm.title = item.name;
+      vm.time = 25*60;
+       vm.minTime = Math.floor(vm.time / 60);
+        vm.secTime = vm.time % 60 > 10 ? vm.time % 60 : "0" + (vm.time % 60);
     }
   },
   watch: {
@@ -63,15 +86,21 @@ export default {
           clearInterval(timer);
           return;
         }
+         if(vm.time <0){
+        vm.minTime =0;
+        vm.secTime=0;
+        return;
+      }
         vm.time = vm.time - 1;
         vm.minTime = Math.floor(vm.time / 60);
         vm.secTime = vm.time % 60 > 10 ? vm.time % 60 : "0" + (vm.time % 60);
       }, 1000);
+     
     }
   },
   mounted() {
     var vm = this;
-    vm.time = 25 * 60;
+    vm.time = 25*60;
     vm.minTime = vm.time / 60;
     vm.secTime = vm.time % 60 > 9 ? vm.time % 60 : "0" + (vm.time % 60);
   }
