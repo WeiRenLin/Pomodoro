@@ -31,6 +31,20 @@
       </div>
     </div>
     <div class="home__right">
+      <div class="home__right__bar">
+        <router-link to="/list">
+        <i class="fas fa-bars"></i>
+        </router-link>
+        <router-link to="/">
+        <i class="fas fa-chart-bar"></i>
+        </router-link>
+        <router-link to="/">
+        <i class="fas fa-podcast"></i>
+        </router-link>
+        <div class="home__right__bar__text">
+        <span>POMODORO</span>
+        </div>
+      </div>
       <div class="home__right__dot">
         <div class="home__right__dot__inside" :class="isPlay == true?'active':'negative'">
           <div class="home__right__dot__inside__small" @click="go">

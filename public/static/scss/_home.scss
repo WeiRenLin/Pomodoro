@@ -32,6 +32,10 @@
                 width: 100%;
                 height: 7vh;
                 border: 0;
+                &::placeholder{
+                    font-weight: bold;
+                    color:$color;
+                }
             }
             &__mix__title {
                 margin-left: 0;
@@ -110,6 +114,31 @@
         }
     }
     &__right {
+        &__bar{
+            position: absolute;
+            top: 10vh;
+            left:95%;
+            display: flex;
+            flex-direction: column;
+            color:white;
+            font-size: 36px;
+            i{
+                padding-top: 50px;
+            }
+            &__text{
+                position: absolute;
+                top:48vh;
+                span{
+                    -webkit-writing-mode: vertical-rl;
+                    -ms-writing-mode: tb-rl;
+                    writing-mode: vertical-rl;
+                    text-orientation: upright;
+                    -webkit-font-feature-settings: 'vkrn', 'vpal';
+                    font-feature-settings: 'vkrn', 'vpal';
+                }
+            }
+          
+        }
         &__dot {
             position: absolute;
             display: block;
