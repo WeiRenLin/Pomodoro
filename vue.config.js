@@ -4,6 +4,6 @@ module.exports = {
         https: true,
     },
     publicPath: process.env.NODE_ENV === 'production'
-    ? '/Pomodoro/'
+    ? '/Pomodoro/public/index.html'
     : '/'
 }
