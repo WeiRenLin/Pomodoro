@@ -176,7 +176,27 @@ a:active {
 .home {
   width: 100%;
   height: 100vh;
+  min-height: 850px;
+  min-width: 1280px;
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffedf7), color-stop(70%, #ffedf7), color-stop(70%, #003164), color-stop(100%, #003164));
+}
+
+.home .path {
+  stroke-dashoffset: 1000;
+  -webkit-animation: run 3s linear;
+          animation: run 3s linear;
+}
+
+@-webkit-keyframes run {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes run {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .home__left__newMission {
@@ -415,5 +435,38 @@ a:active {
 
 .list__bar span {
   margin-left: 1vw;
+}
+
+.list__newMission {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 20vw;
+}
+
+.list__newMission__new__task {
+  width: 100%;
+  height: 7vh;
+  border: 0;
+}
+
+.list__newMission__new__task::-webkit-input-placeholder {
+  font-weight: bold;
+  color: #ff4384;
+}
+
+.list__newMission__new__task:-ms-input-placeholder {
+  font-weight: bold;
+  color: #ff4384;
+}
+
+.list__newMission__new__task::-ms-input-placeholder {
+  font-weight: bold;
+  color: #ff4384;
+}
+
+.list__newMission__new__task::placeholder {
+  font-weight: bold;
+  color: #ff4384;
 }
 /*# sourceMappingURL=all.css.map */
